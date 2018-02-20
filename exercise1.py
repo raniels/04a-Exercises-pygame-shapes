@@ -14,24 +14,24 @@ I will do the first two lines for you as an example
 import sys, pygame	# imports the sys and pygame modules so they can be used in this program
 assert sys.version_info >= (3,4), 'This script requires at least Python 3.4' # requires that the Python 3.4 (or higher version) interpreter is being used; i.e., not compatible with Python 2
 
-screen_size = (800,600)
-FPS = 60
+screen_size = (800,600) #variable represetning screen resolution
+FPS = 60 #variable representing FPS
 
-def main():
-	pygame.init()
-	screen = pygame.display.set_mode(screen_size)
-	clock = pygame.time.Clock()
+def main(): #creates main function
+	pygame.init() # line that needs to be put in order for pygame to work
+	screen = pygame.display.set_mode(screen_size) #sets screen rest
+	clock = pygame.time.Clock() #starts a clock
 
-	while True:
-		clock.tick(FPS)
-		screen.fill((0,0,0))
+	while True: # sets a loop taht will run until chagned to False
+		clock.tick(FPS) # sets fps
+		screen.fill((0,0,0)) #black background
 
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				pygame.quit()
-				sys.exit(0)
+		for event in pygame.event.get(): # for each event that runs
+			if event.type == pygame.QUIT: # check to see if quit is the current event
+				pygame.quit() # ends pygame
+				sys.exit(0) # endds program
 
-		pygame.display.flip()
+		pygame.display.flip() # lets program display an image all at once
 
-if __name__ == '__main__':
-	main()
+if __name__ == '__main__': #makes sure it doesnt run without being called if its am odule
+	main() #runs main
