@@ -19,7 +19,7 @@ def main():
 	font = pygame.font.SysFont("arial",64)
 	clock = pygame.time.Clock()
 
-	(x,y) = (100,100)
+	(x,y) = (200,236)
 
 	while True:
 		clock.tick(FPS)
@@ -30,9 +30,9 @@ def main():
 				pygame.quit()
 				sys.exit(0)
 
-		print(datetime.now().time())
+		#print(datetime.now().time())
 
-		text = "Hello World!"
+		text = str(datetime.now().time())
 		f = font.render(text, True, white)
 		(fwidth,fheight) = font.size(text)
 		screen.blit(f,(x,y))
