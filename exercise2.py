@@ -7,35 +7,38 @@ hint: where you place the screen.fill(black) will affect whether or not the squa
 
 '''
 import sys, pygame, random
-assert sys.version_info >= (3,4), 'This script requires at least Python 3.4' 
+assert sys.version_info >= (3,4), 'This script requires at least Python 3.4'
 
 screen_size = (800,600)
 FPS = 60
-black = (0,0,0)
-white = (255,255,255)
-red = (255,0,0)
-green = (0,255,0)
-dark_green = (0,128,0)
-yellow = (255,255,0)
+
 
 def main():
-	pygame.init()
-	screen = pygame.display.set_mode(screen_size)
-	clock = pygame.time.Clock()
+    pygame.init()
+    screen = pygame.display.set_mode(screen_size)
+    clock = pygame.time.Clock()
 
-	(x,y,width,height) = (100,100,50,50)
 
-	while True:
-		clock.tick(FPS)
 
-		screen.fill(black)
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				pygame.quit()
-				sys.exit(0)
-		color = red
-		pygame.draw.rect(screen, color, (x,y,width,height))
-		pygame.display.flip()
+    while True:
+        clock.tick(FPS)
+
+        screen.fill((0,0,0))
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit(0)
+        x = random.randint(0, 800)
+        y = random.randint(0, 600)
+        width = random.randint(0, 600)
+        height = random.randint(0, 800)
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
+        color = (r, g, b)
+        pygame.draw.rect(screen, color, (x, y, width, height))
+        pygame.display.flip()
+
 
 if __name__ == '__main__':
-	main()
+    main()
